@@ -7,7 +7,7 @@ if (isset($_POST['update_product'])){
     $nama_produk = $_POST['nama_produk'];
     $harga_produk = $_POST['harga_produk'];
 
-    $stmt = $conn->prepare("UPDATE products SET nama_produk = ? WHEWE id= ?");
+    $stmt = $conn->prepare("UPDATE products SET nama_produk = ?, harga_produk = ? WHERE id= ?");
     $stmt->bind_param("sii", $nama_produk, $harga_produk, $id);
     
     if ($stmt->execute()){

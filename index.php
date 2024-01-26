@@ -10,7 +10,7 @@ require_once('./db/DB_login.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>🛒Shopiria | Login</title>
-    <link rel='stylesheet' href='./assets/style/login.css'>
+    <link rel='stylesheet' href='assets/style/login.css'>
     
 </head>
 <body>

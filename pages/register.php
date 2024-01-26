@@ -8,6 +8,7 @@ require_once('../db/DB_register.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='../assets/style/register.css'>
     <title>🛒Shopiria | Login</title>
 </head>
 <body>
