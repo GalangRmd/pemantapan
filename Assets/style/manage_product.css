@@ -7,6 +7,19 @@ body {
     padding: 0;
 }
 
+.btn-logout {
+    padding: 10px 15px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: #c9302c;
+}
+
 .header {
     text-align: center;
     background-color: #3498db;
@@ -23,7 +36,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-form {
+.body {
     margin-top: 20px;
 }
 
