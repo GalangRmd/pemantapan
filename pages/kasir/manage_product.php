@@ -90,5 +90,5 @@ $result = $conn->query($query);
         <?php endwhile; ?>
     </table>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-XX1t1zVtizEJtrIzgkgT/iVXntHLD/j2Z9t8x8iqUpuTUQoPkqBpWrn3X2IU9yBn" crossorigin="anonymous"></script>
 </html>
