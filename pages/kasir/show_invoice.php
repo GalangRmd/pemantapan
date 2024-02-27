@@ -18,9 +18,9 @@ $tanggal_bulan = date('d F Y H:i:s', strtotime($invoice_data['updated_at']));
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice</title>
+    <title>🛒Matias | Invoice</title>
     <link rel="stylesheet" href="../../assets/style/show_invoice.css"> 
-    <link rel="stylesheet" href="../../assets/style/print_invoice.css" media="print"> 
+    <link rel="stylesheet" href="../../assets/style/print_invoice.css" media="print">
 </head>
 <body>
     <div class="invoice-container">

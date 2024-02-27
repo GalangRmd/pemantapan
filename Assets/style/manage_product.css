@@ -1,71 +1,29 @@
-/* Assets/style/manage_product.css */
-
+/* General styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.btn-logout {
-    padding: 10px 15px;
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Navbar styles */
+.navbar {
+    background-color: #343a40 !important;
 }
 
-.btn-logout:hover {
-    background-color: #c9302c;
+.navbar .navbar-nav .nav-link {
+    color: #ffffff !important;
 }
 
-.header {
-    text-align: center;
-    background-color: #3498db;
-    color: white;
-    padding: 20px;
+.sss{
+    margin-top: 50px;
 }
 
-.form-container {
-    max-width: 400px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+h1 {
+    margin: 0;
+    font-size: 24px;
 }
 
-.body {
-    margin-top: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-input, button {
-    margin-bottom: 15px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #3498db;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #2980b9;
-}
-
+/* Table styles */
 table {
     width: 80%;
     margin: 20px auto;
@@ -75,47 +33,133 @@ table {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+table th,
+table td {
     padding: 15px;
     border: 1px solid #ddd;
-    text-align: left;
+    text-align: center;
 }
 
-th {
-    background-color: #3498db;
+table th {
+    background-color: #28343b;
     color: white;
 }
 
-tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+/* Action buttons styles */
 .action-buttons {
     display: flex;
+    box-shadow: 1px 1px 1px grey;
 }
 
 .action-buttons form {
     margin-right: 10px;
 }
 
-.update-button, .delete-button, .checkout-button {
-    padding: 10px;
-    cursor: pointer;
+.action-buttons button {
+    padding: 8px 12px;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Edit button style */
+.action-buttons .btn-edit {
+    background-color: #f0ad4e; /* Warna kuning */
+    color: white;
+}
+
+.action-buttons .btn-edit:hover {
+    background-color: #ec971f; /* Warna kuning lebih gelap saat dihover */
+}
+
+/* Delete button style */
+.action-buttons .btn-delete {
+    background-color: #d9534f; /* Warna merah */
+    color: white;
+}
+
+.action-buttons .btn-delete:hover {
+    background-color: #c9302c; /* Warna merah lebih gelap saat dihover */
+}
+
+/* Checkout button style */
+.action-buttons .btn-checkout {
+    background-color: #007bff; /* Warna biru */
+    color: white;
+}
+
+.action-buttons .btn-checkout:hover {
+    background-color: #0056b3; /* Warna biru lebih gelap saat dihover */
+}
+
+/* Modal styles */
+.modal-header h1 {
+    font-size: 20px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body form {
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.modal-body input[type="text"],
+.modal-body input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.update-button {
-    background-color: #4caf50;
-    color: white;
+.modal-footer {
+    padding: 20px;
+    text-align: center;
 }
 
-.delete-button {
-    background-color: #d9534f;
-    color: white;
+.modal-footer button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.checkout-button {
-    background-color: #3498db;
-    color: white;
+/* Add button style */
+.btn-add {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+.btn-add:hover {
+    background-color: #0056b3;
+}
+
+/* Style untuk tombol logout */
+.btn-logout {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    float: right;
+}
+
+

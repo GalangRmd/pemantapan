@@ -9,7 +9,7 @@ require_once('./db/DB_login.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
-    <title>🛒Shopiria | Login</title>
+    <title>🛒Matias | Login</title>
     <link rel='stylesheet' href='assets/style/login.css'>
     
 </head>
@@ -30,9 +30,6 @@ require_once('./db/DB_login.php');
             </div>
             <div>
                 <button type="submit">Sign In</button>
-            </div>
-            <div class="text-center mt-4">
-                <p>Don't Have Account?<a href="./pages/register.php">Register Here</a></p>
             </div>
         </form>
     </div>
