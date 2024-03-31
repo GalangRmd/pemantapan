@@ -1,20 +1,11 @@
 <?php
 session_start();
 require_once('../../db/DB_connection.php');
-include "../../confi/app.php";
+require_once('../../confi/app.php');
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: /index.php');
-    exit;
-}
-
-// Debugging: Check the role value
-echo "Role: ".$_SESSION["role"];
-
-if ($_SESSION["role"] !== "owner") {
-    echo "<script>
-            window.history.back(); 
-          </script>";
     exit;
 }
 
@@ -77,6 +68,8 @@ if(isset($_GET['id'])) {
 $query = "SELECT * FROM users";
 $result = $conn->query($query);
 $no = 1;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -91,22 +84,31 @@ $no = 1;
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
                     <a class="nav-link " aria-current="page" href="../dashboard.php">Dashboard</a>
+                </li>
+                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
                     <a class="nav-link" href="../kasir/manage_product.php">Manage</a>
+                </li>
+                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
                     <a class="nav-link active" href="">Data Karyawan</a>
-                </div>
-            </div>
-            <div>
-                <form action="../../db/DB_logout.php" method="post">
-                    <button type="submit" class="btn btn-danger">Log Out</button>
-                </form>
+                </li>
+                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                    <a class="nav-link" href="../kasir/transaksi.php">Transaksi</a>
+                </li>
             </div>
         </div>
-    </nav>
+        <div>
+            <form action="../db/DB_logout.php" method="post">
+                <button type="submit" class=" btn btn-danger">Log Out</button>
+            </form>
+        </div>
+    </div>
+</nav>
     <center>
         <h1 class="dd mt-4"><b>Karyawan</b></h1>
         <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -222,5 +224,5 @@ $no = 1;
     </div>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></srip>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

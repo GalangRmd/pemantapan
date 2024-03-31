@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("../db/DB_connection.php");
-
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
     header('Location: ../index.php');
     exit();
@@ -26,9 +26,18 @@ $realName = $_SESSION['nama'];
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="">Dashboard</a>
-                <a class="nav-link" href="kasir/manage_product.php">Manage</a>
-                <a class="nav-link" href="superadmin/Data-karyawan.php">Data Karyawan</a>
+                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                    <a class="nav-link active" aria-current="page" href="">Dashboard</a>
+                </li>
+                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                    <a class="nav-link" href="kasir/manage_product.php">Manage</a>
+                </li>
+                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                    <a class="nav-link" href="superadmin/data-karyawan.php">Data Karyawan</a>
+                </li>
+                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                    <a class="nav-link" href="kasir/transaksi.php">Transaksi</a>
+                </li>
             </div>
         </div>
         <div>

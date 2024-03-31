@@ -10,6 +10,7 @@ require_once('./db/DB_login.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>🛒Matias | Login</title>
+    <link rel="shortcut icon" type="image/logo.png" href="assets/images/logo.png.png">
     <link rel='stylesheet' href='assets/style/login.css'>
     
 </head>
