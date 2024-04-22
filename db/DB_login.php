@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['nama']= $user['nama'];
         $_SESSION['username']= $user['username'];
         $_SESSION['user_id']= $user['id'];
+        $_SESSION['role']= $user['role'];
 
         header("location: ./pages/dashboard.php");
     }else {

@@ -17,26 +17,28 @@ $realName = $_SESSION['nama'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='../assets/style/dashboard.css'>
     <script defer src="../assets/js/theme.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/logo.png.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>🛒Matias | Dashboard</title>
+    <title>Tamias | Dashboard</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
                     <a class="nav-link active" aria-current="page" href="">Dashboard</a>
-                </li>
                 <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
                     <a class="nav-link" href="kasir/manage_product.php">Manage</a>
                 </li>
-                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                <li class="nav-item <?php echo ($role !== 'kasir') ? '' : 'd-none'; ?>">
                     <a class="nav-link" href="superadmin/data-karyawan.php">Data Karyawan</a>
                 </li>
-                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                <li class="nav-item <?php echo ($role !== 'owner') ? '' : 'd-none'; ?>">
                     <a class="nav-link" href="kasir/transaksi.php">Transaksi</a>
+                </li>
+                <li class="nav-item <?php echo ($role !== 'kasir') ? '' : 'd-none'; ?>">
+                    <a class="nav-link" href="activity/log_activity.php">Activity</a>
                 </li>
             </div>
         </div>

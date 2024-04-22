@@ -56,8 +56,9 @@ if (isset($_POST['update_product'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='../../Assets/style/manage_product.css'>
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/logo.png.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>🛒Tamias | Manage</title>
+    <title>Tamias | Manage</title>
 </head>
 
 <body>
@@ -65,22 +66,23 @@ if (isset($_POST['update_product'])){
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
                     <a class="nav-link " aria-current="page" href="../dashboard.php">Dashboard</a>
-                </li>
                 <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
                     <a class="nav-link active" href="">Manage</a>
                 </li>
-                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                <li class="nav-item <?php echo ($role !== 'kasir') ? '' : 'd-none'; ?>">
                     <a class="nav-link" href="../superadmin/data-karyawan.php">Data Karyawan</a>
                 </li>
-                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                <li class="nav-item <?php echo ($role !== 'owner') ? '' : 'd-none'; ?>">
                     <a class="nav-link" href="transaksi.php">Transaksi</a>
+                </li>
+                <li class="nav-item <?php echo ($role !== 'kasir') ? '' : 'd-none'; ?>">
+                    <a class="nav-link" href="../activity/log_activity.php">Activity</a>
                 </li>
             </div>
         </div>
         <div>
-            <form action="../db/DB_logout.php" method="post">
+            <form action="../../db/DB_logout.php" method="post">
                 <button type="submit" class=" btn btn-danger">Log Out</button>
             </form>
         </div>
@@ -123,10 +125,6 @@ if (isset($_POST['update_product'])){
                     <form action="../../db/DB_delete_product.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                         <button type="submit" class="btn btn-danger" name="delete_product" style="width: 120px; margin-top:25px; box-shadow: 1px 1px 1px grey; " onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
-                    </form>
-                    <form action="../../db/DB_process_checkout.php" method="post">
-                        <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
-                        <button type="submit" class="btn btn-primary" name="checkout_product" style="width: 120px; margin-top:25px; box-shadow: 1px 1px 1px grey; " onclick="return confirm('Are you sure you want to Buy this product?')">Checkout</button>
                     </form>
                 </td>
             </tr>

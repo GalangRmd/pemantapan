@@ -1,11 +1,19 @@
+
 <?php
 session_start();
+
+// Periksa peran pengguna
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
 
-if (!$role) {
-    header("Location: ../");
+// Jika peran pengguna bukan admin, alihkan ke halaman lain atau tampilkan pesan akses ditolak
+if ($_SESSION["role"] === "owner") {
+    // Contoh alihkan ke halaman lain
+    echo "<script>
+            windows.history.back();
+          </script>";
     exit();
 }
+
 include_once '../../db/DB_connection.php';
 
 // Fungsi untuk mencari produk berdasarkan kata kunci
@@ -172,8 +180,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['refresh'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transaksi Kasir</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/logo.png">
+    <title>Tamias | Transaksi Kasir</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/logo.png.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
@@ -181,6 +189,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['refresh'])) {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+}
+    table th{
+        background-color: #28343b;
 }
 
     </style>
@@ -190,22 +201,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['refresh'])) {
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
                     <a class="nav-link " aria-current="page" href="../dashboard.php">Dashboard</a>
-                </li>
                 <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
-                    <a class="nav-link" href="manage_product.php">Manage</a>
+                    <a class="nav-link" href="../kasir/manage_product.php">Manage</a>
                 </li>
-                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                <li class="nav-item <?php echo ($role !== 'kasir') ? '' : 'd-none'; ?>">
                     <a class="nav-link" href="../superadmin/data-karyawan.php">Data Karyawan</a>
                 </li>
-                <li class="nav-item <?php echo ($role === 'admin') ? '' : 'd-none'; ?>">
+                <li class="nav-item <?php echo ($role !== 'owner') ? '' : 'd-none'; ?>">
                     <a class="nav-link active" href="">Transaksi</a>
+                </li>
+                <li class="nav-item <?php echo ($role !== 'kasir') ? '' : 'd-none'; ?>">
+                    <a class="nav-link" href="../activity/log_activity.php">Activity</a>
                 </li>
             </div>
         </div>
         <div>
-            <form action="../db/DB_logout.php" method="post">
+            <form action="../../db/DB_logout.php" method="post">
                 <button type="submit" class=" btn btn-danger">Log Out</button>
             </form>
         </div>
@@ -252,7 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['refresh'])) {
         <tr>
             <td colspan="5">Tidak ada produk yang ditemukan.</td>
         </tr>
-    <?php endif; ?>
+    <?php endif; ?> 
 </tbody>
         </table>
         <?php if (!empty($struk)) : ?>
